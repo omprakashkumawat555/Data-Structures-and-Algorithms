@@ -1,0 +1,117 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node* next;
+};
+struct node *temp,*q,*s1,*s2,*s,*ptr, *prev=NULL, *next,*last;
+void merge();
+void display();
+void main()
+{
+	int n,ele,i,u;
+
+
+	printf("enter number of nodes: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		temp=(struct node*)malloc(sizeof(struct node));
+		printf("enter any element\n");
+		scanf("%d",&ele);
+		temp->data=ele;
+		temp->next=NULL;
+		if(s1==NULL)
+		{
+			s1=temp;
+			last=temp;
+		}
+		else
+		{
+				last->next = temp;
+        	last = temp;
+		}
+}
+    printf("for second linked list: \n");
+	printf("enter number of nodes: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		temp=(struct node*)malloc(sizeof(struct node));
+		printf("enter any element\n");
+		scanf("%d",&ele);
+		temp->data=ele;
+		temp->next=NULL;
+		if(s2==NULL)
+		{
+			s2=temp;
+			last=temp;
+		}
+		else
+		{
+				last->next = temp;
+        	last = temp;
+		}
+
+}
+display();
+merge();
+display();
+}
+
+void merge()
+{
+	while(s1!=NULL && s2!=NULL)  //  //whenever one pointer out of s1 and s2 become null loop closed.
+	{
+		if(s1->data > s2->data)
+		{
+			if(s==NULL)
+			{
+				s=s2;
+				last=s2;
+			}
+			else
+			{
+				last->next=s2;
+				last=s2;
+			}
+			s2=s2->next;
+		}
+		else
+		{
+			if(s==NULL)
+			{
+				s=s1;
+				last=s1;
+			}
+			else
+			{
+				last->next=s1;
+				last=s1;
+			}
+			s1=s1->next;
+		}
+	}
+	if(s2!=NULL)
+	{
+		last->next=s2;
+	}
+	if(s1!=NULL)
+	{
+		last->next=s1;
+	}
+}
+	
+
+
+
+void display()
+{
+	
+	q=s;
+	while(q!=NULL)
+	{
+		printf("%d",q->data);
+		q=q->next;
+	}
+}
